@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { BrowserRouter } from 'react-router-dom'
 
-import { App } from './components'
+import { App } from './components/views'
 import { reportWebVitals, serviceWorkerRegistration } from './helpers'
 import './helpers/firebase'
 import './index.css'
