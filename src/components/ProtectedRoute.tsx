@@ -16,7 +16,7 @@ const ProtectedRoute = ({ children }) => {
     }
   })
 
-  return children
+  return isAuth ? children : null
 }
 
 export default ProtectedRoute

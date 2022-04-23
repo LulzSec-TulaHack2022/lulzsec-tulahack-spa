@@ -51,23 +51,20 @@ export const PlantListPage = () => {
 
   return (
     <Box position="relative">
-      <Button startIcon={<AddIcon />}>Новое растение</Button>
+      {/*<Button startIcon={<AddIcon />}>Новое растение</Button>*/}
       <Stack spacing={1}>
         {data?.map(plant => (
           <PlantCardItem flower={plant} key={plant.id} />
         ))}
       </Stack>
-      <Fab
-        color="secondary"
-        aria-label="add"
-        sx={{
-          position: 'absolute',
-          right: 16,
-          bottom: 16,
-        }}
+      <Typography
+        variant="body2"
+        color="text.secondary"
+        textAlign="center"
+        my={5}
       >
-        <AddIcon />
-      </Fab>
+        Новое растение можно выбрать в каталоге
+      </Typography>
     </Box>
   )
 }

@@ -11,7 +11,13 @@ export const AuthForm: FC<any> = ({
   navLinkText,
   link,
 }) => {
-  const { register, handleSubmit } = useForm({ mode: 'onSubmit' })
+  const { register, handleSubmit } = useForm({
+    mode: 'onSubmit',
+    defaultValues: {
+      email: 'my@lulzsec.ru',
+      password: 'ilovethis',
+    },
+  })
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

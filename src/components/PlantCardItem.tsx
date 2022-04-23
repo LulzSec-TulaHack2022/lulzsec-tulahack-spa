@@ -65,18 +65,24 @@ const PlantCardItem: FunctionComponent<Props> = props => {
         <Stack spacing={0.5}>
           <Typography fontWeight="bold">{name}</Typography>
           <Typography color="text.secondary">{nameNomenclature}</Typography>
-          <Box height="1.5rem">
+          <Box height="4rem">
             {watered ? (
-              <Typography color="success.main">Прекрасно!</Typography>
+              <Typography color="success.main">Потрясающе!</Typography>
             ) : needWater ? (
               <Typography color="error.main">Полейте растение!</Typography>
             ) : null}
+            {!watered && (
+              <Button
+                variant="vera"
+                size="small"
+                fullWidth
+                onClick={markWateringPlant}
+                sx={{ mt: 1 }}
+              >
+                Я полил(а) растение
+              </Button>
+            )}
           </Box>
-          {!watered && (
-            <Button variant="vera" size="small" onClick={markWateringPlant}>
-              Я полил(а) растение
-            </Button>
-          )}
         </Stack>
       </Stack>
       <PlantActions />
