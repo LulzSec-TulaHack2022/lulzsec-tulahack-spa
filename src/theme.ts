@@ -13,6 +13,9 @@ export const theme: ThemeOptions = createTheme({
     secondary: {
       main: '#F24E1E',
     },
+    background: {
+      default: '##F8F1FF',
+    },
   },
   components: {
     MuiButton: {

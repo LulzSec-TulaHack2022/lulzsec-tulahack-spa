@@ -24,10 +24,7 @@
     "jsx": "react-jsx",
     "types": [
       "node"
-    ],
-    "paths": {
-      "@lulz/*": ["src/*"]
-    }
+    ]
   },
   "include": [
     "src"

@@ -14,29 +14,22 @@ export const AuthForm: FC<any> = ({
   const { register, handleSubmit } = useForm({ mode: 'onSubmit' })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-      <Stack
-        alignItems="center"
-        spacing={4}
-        sx={{ padding: '0', width: '100%' }}
-      >
-        <Typography variant="h1" fontSize={29} fontWeight={700}>
-          {title}
-        </Typography>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Stack alignItems="center" spacing={2}>
+        <Typography variant="h4">{title}</Typography>
         <TextField
           label="Введите email"
           variant="filled"
           inputProps={{ ...register('email') }}
-          fullWidth={true}
-          sx={{ flexGrow: 1 }}
+          fullWidth
         />
         <TextField
           label="Введите пароль"
           variant="filled"
           inputProps={{ ...register('password') }}
-          fullWidth={true}
+          fullWidth
         />
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="contained" fullWidth>
           {buttonText}
         </Button>
         <NavLink to={link}>
