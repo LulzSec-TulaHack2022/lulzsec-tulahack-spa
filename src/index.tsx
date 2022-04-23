@@ -11,6 +11,7 @@ import reportWebVitals from './reportWebVitals'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import store from './store/store'
 import { theme } from './theme'
+import './index.css'
 import './firebase'
 
 const queryClient = new QueryClient({

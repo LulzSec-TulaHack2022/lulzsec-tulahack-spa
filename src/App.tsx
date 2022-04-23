@@ -14,7 +14,11 @@ import {
 
 const App = () => {
   return (
-    <Container component="main" maxWidth="xs" sx={{ p: 0, height: '100vh' }}>
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{ p: 0, height: '100vh', backgroundColor: 'white' }}
+    >
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<PlantCatalogPage />} />

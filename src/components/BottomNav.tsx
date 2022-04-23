@@ -16,7 +16,7 @@ const BottomNav = () => {
   const navigate = useNavigate()
 
   return (
-    <Container>
+    <Container maxWidth="xs">
       <BottomNavigation
         showLabels={true}
         value={location.pathname}

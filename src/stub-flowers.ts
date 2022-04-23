@@ -4,22 +4,24 @@ const stubFlowers: Array<FlowerInfo> = [
   {
     id: 1,
     name: 'Роза',
-    description: 'string',
+    description:
+      'Ро́за — собирательное название видов и сортов представителей рода Шиповник (лат. Rósa), выращиваемых человеком и растущих в дикой природе. Большая часть сортов роз получена в результате длительной селекции путём многократных повторных скрещиваний и отбора. Некоторые сорта являются формами дикорастущих видов.',
     temperature: 'low',
     humidity: 'low',
     illumination: 'low',
     wikiLink: 'string',
-    img: 'https://cdn.shopify.com/s/files/1/0035/2754/0782/articles/International_Flower_Day_1200x1200.jpeg?v=1579365491',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/A_rose_flower.jpg/440px-A_rose_flower.jpg',
   },
   {
     id: 2,
-    name: 'Мемоза',
-    description: 'string',
+    name: 'Мимоза',
+    description:
+      'Мимо́за (лат. Mimosa) — род цветковых растений семейства Бобовые (Fabaceae). Ранее это растение помещали в ныне расформированное семейство Мимозовые (Mimosaceae R.Br.).',
     temperature: 'low',
     humidity: 'low',
     illumination: 'low',
     wikiLink: 'string',
-    img: 'https://cdn.shopify.com/s/files/1/0035/2754/0782/articles/International_Flower_Day_1200x1200.jpeg?v=1579365491',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mimosa_pudica_003.JPG/550px-Mimosa_pudica_003.JPG',
   },
 ]
 

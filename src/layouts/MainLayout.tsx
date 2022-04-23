@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Stack } from '@mui/material'
+import { Box } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 
 import BottomNav from '../components/BottomNav'
@@ -8,13 +8,17 @@ import Header from '../components/Header'
 
 const MainLayout = () => {
   return (
-    <Stack justifyContent="space-between" alignItems="stretch" height="100%">
-      <Header />
-      <Box flexGrow={1} flexShrink={1} overflow="auto" py={1}>
+    <Box height="100%">
+      <Box position="fixed" top="0" left="0" width="100%" zIndex={10}>
+        <Header />
+      </Box>
+      <Box flexGrow={1} pt={10}>
         <Outlet />
       </Box>
-      <BottomNav />
-    </Stack>
+      <Box position="fixed" bottom="0" left="0" width="100%">
+        <BottomNav />
+      </Box>
+    </Box>
   )
 }
 
