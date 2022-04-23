@@ -116,11 +116,7 @@ const PlantCatalog: React.FC = () => {
       </Box>
       {isAuth && (
         <Box textAlign="center" mt={2}>
-          <Button variant="vera">
-            <Typography fontSize={17} fontWeight={700}>
-              Добавить растение
-            </Typography>
-          </Button>
+          <Button variant="vera">Добавить растение</Button>
         </Box>
       )}
     </Box>
