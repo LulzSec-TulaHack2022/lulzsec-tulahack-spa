@@ -5,8 +5,11 @@ import SwipableViews from 'react-swipeable-views'
 
 import stubPlants from '../stub-flowers'
 
+import PlantInfoModal from './PlantInfoModal'
+
 const PlantCatalog: React.FC = () => {
   const [index, setIndex] = useState(0)
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <Box>
@@ -15,25 +18,37 @@ const PlantCatalog: React.FC = () => {
         enableMouseEvents={true}
         onChangeIndex={setIndex}
       >
-        {stubPlants.map((plant, idx) => (
+        {stubPlants.map((plantInfo, idx) => (
           <Box key={idx} p={1}>
-            <Box sx={{ my: 1.1 }}>
-              <img src={plant.img} alt="plant" style={{ width: '100%' }} />
+            <Box my={1.1} height={350}>
+              <img
+                src={plantInfo.img}
+                alt="plant"
+                style={{ width: '100%', height: '100%' }}
+              />
             </Box>
-            <Typography sx={{ fontSize: 22, marginBottom: 1, fontWeight: 700 }}>
-              {plant.name}
+            <Typography fontSize={22} mb={1} fontWeight={700}>
+              {plantInfo.name}
             </Typography>
-            <Paper elevation={2} sx={{ padding: 2 }}>
-              <Typography
-                fontSize={22}
-                overflow="hidden"
-                textOverflow="ellipsis"
-                maxHeight={135}
-              >
-                djsakjlfkasdk lfjkdskjfjkkasjjfk sakfjklsjdflkdjsfl jdafkdsajf;s
-                ldkfkasjflkasjfasd;
-              </Typography>
-              <Link underline="always">Подробнее</Link>
+            <Paper elevation={2}>
+              <Box p={2}>
+                <Typography
+                  fontSize={22}
+                  overflow="hidden"
+                  textOverflow="ellipsis"
+                  maxHeight={100}
+                >
+                  {plantInfo.description}
+                </Typography>
+                <Link underline="always" onClick={() => setModalOpen(true)}>
+                  Подробнее
+                </Link>
+                <PlantInfoModal
+                  open={modalOpen}
+                  onClose={() => setModalOpen(false)}
+                  plantInfo={stubPlants[index]}
+                />
+              </Box>
             </Paper>
           </Box>
         ))}
@@ -45,7 +60,7 @@ const PlantCatalog: React.FC = () => {
       </Box>
       <Box textAlign="center" mt={2}>
         <Button>
-          <Typography sx={{ fontSize: 17, marginBottom: 1, fontWeight: 700 }}>
+          <Typography fontSize={17} fontWeight={700}>
             Добавить растение
           </Typography>
         </Button>
