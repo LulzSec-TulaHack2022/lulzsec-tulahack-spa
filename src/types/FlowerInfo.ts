@@ -7,8 +7,6 @@ type FlowerInfo = {
   temperature: PropertyRange
   humidity: PropertyRange
   illumination: PropertyRange
-  wikiLink: string
-  img: string
 }
 
 export type { FlowerInfo }
