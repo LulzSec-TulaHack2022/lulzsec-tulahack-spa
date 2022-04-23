@@ -1,5 +1,5 @@
 enum NavLinkValueList {
-  PlantSelectionPage = '/',
+  PlantCatalogPage = '/',
   PlantCreatingPage = '/plant-creating',
   PlantListPage = '/plant-list',
   PlantDetailsPage = '/plant-details',

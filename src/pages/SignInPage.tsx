@@ -5,7 +5,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import AuthForm from '../components/AuthForm'
 import { useAuth } from '../hooks'
 
-const SignInPage = () => {
+export const SignInPage = () => {
   const signIn = useAuth(signInWithEmailAndPassword)
 
   return (
@@ -18,5 +18,3 @@ const SignInPage = () => {
     />
   )
 }
-
-export default SignInPage

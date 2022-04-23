@@ -1,7 +1,5 @@
 import React from 'react'
 
-const Page404 = () => {
+export const Page404: React.FC = () => {
   return <p>Page404</p>
 }
-
-export default Page404

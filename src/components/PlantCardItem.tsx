@@ -3,7 +3,7 @@ import React, { FunctionComponent, useMemo, useState } from 'react'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material'
 
-import { MyFlower } from '../../types'
+import { MyFlower } from '../types'
 
 interface OwnProps {
   flower: MyFlower
