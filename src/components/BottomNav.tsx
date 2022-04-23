@@ -1,6 +1,7 @@
 import React from 'react'
 
 import FavoriteIcon from '@mui/icons-material/Favorite'
+import ForestRoundedIcon from '@mui/icons-material/ForestRounded'
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'
 import PersonIcon from '@mui/icons-material/Person'
 import {
@@ -29,7 +30,7 @@ const BottomNav = () => {
         <BottomNavigationAction
           label="Мои растения"
           value="/plant-list"
-          icon={<FavoriteIcon />}
+          icon={<ForestRoundedIcon />}
         />
         <BottomNavigationAction
           label="Аккаунт"
