@@ -11,7 +11,7 @@ import { useUser } from '../../hooks'
 export const PlantListPage = () => {
   const { user } = useUser()
   const { data, isLoading } = useQuery('myPlantsList', async () =>
-    getMyPlants(user.uuid),
+    getMyPlants(user.uid),
   )
 
   if (isLoading) {

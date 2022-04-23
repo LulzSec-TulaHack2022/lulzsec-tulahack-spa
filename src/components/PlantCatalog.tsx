@@ -6,13 +6,15 @@ import SwipableViews from 'react-swipeable-views'
 
 import { getPlantCatalog } from '../api'
 import { getImgByName } from '../api/imgPlantsMap'
+import PlantCreating from '../components/PlantCreating'
 import { useIsAuth } from '../hooks'
 
 import PlantInfoModal from './PlantInfoModal'
 
 const PlantCatalog: React.FC = () => {
   const [index, setIndex] = useState(0)
-  const [modalOpen, setModalOpen] = useState(false)
+  const [plantInfoOpen, setPlantInfoOpen] = useState(false)
+  const [plantCreatingOpen, setPlantCreatingOpen] = useState(false)
 
   const isAuth = useIsAuth()
 
@@ -96,7 +98,7 @@ const PlantCatalog: React.FC = () => {
                 >
                   {plantInfo.description}
                 </Typography>
-                <Link underline="always" onClick={() => setModalOpen(true)}>
+                <Link underline="always" onClick={() => setPlantInfoOpen(true)}>
                   Подробнее
                 </Link>
               </Box>
@@ -104,8 +106,8 @@ const PlantCatalog: React.FC = () => {
           </Box>
         ))}
         <PlantInfoModal
-          open={modalOpen}
-          onClose={() => setModalOpen(false)}
+          open={plantInfoOpen}
+          onClose={() => setPlantInfoOpen(false)}
           plantInfo={data[index]}
         />
       </SwipableViews>
@@ -116,7 +118,14 @@ const PlantCatalog: React.FC = () => {
       </Box>
       {isAuth && (
         <Box textAlign="center" mt={2}>
-          <Button variant="vera">Добавить растение</Button>
+          <Button variant="vera" onClick={() => setPlantCreatingOpen(true)}>
+            Добавить растение
+          </Button>
+          <PlantCreating
+            open={plantCreatingOpen}
+            onClose={() => setPlantCreatingOpen(false)}
+            plantInfo={data[index]}
+          />
         </Box>
       )}
     </Box>
