@@ -19,14 +19,14 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
   plantInfo,
 }) => {
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} disableAutoFocus={true}>
       <Box
         position="absolute"
         top="50%"
         left="50%"
-        width={400}
+        width="97%"
         sx={{ transform: 'translate(-50%, -50%)', backgroundColor: 'white' }}
-        p={1}
+        p={2}
       >
         <Typography variant="h6" mb={1} fontSize={18} fontWeight={700}>
           {plantInfo.name}

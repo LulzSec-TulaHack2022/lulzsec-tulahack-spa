@@ -6,7 +6,6 @@ import { useQuery } from 'react-query'
 
 import { getMyPlants } from '../../api'
 import PlantCardItem from '../../components/PlantCardItem'
-import withProtectedRoute from '../../components/withProtectedRoute'
 import { useUser } from '../../hooks'
 
 export const PlantListPage = () => {
@@ -72,5 +71,3 @@ export const PlantListPage = () => {
     </Box>
   )
 }
-
-export default withProtectedRoute(PlantListPage)

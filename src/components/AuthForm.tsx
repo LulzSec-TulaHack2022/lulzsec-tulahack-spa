@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { TextField, Typography, Button, Stack } from '@mui/material'
+import { TextField, Typography, Button, Stack, Link } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { NavLink } from 'react-router-dom'
 
@@ -32,7 +32,9 @@ export const AuthForm: FC<any> = ({
         <Button type="submit" variant="contained" fullWidth>
           {buttonText}
         </Button>
-        <NavLink to={link}>{navLinkText}</NavLink>
+        <NavLink to={link}>
+          <Link underline="always">{navLinkText}</Link>
+        </NavLink>
       </Stack>
     </form>
   )

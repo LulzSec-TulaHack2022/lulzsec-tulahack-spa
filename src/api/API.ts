@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const API = axios.create({
-  baseURL: '',
+  baseURL: '/api',
 })
 
 API.defaults.headers.common = {

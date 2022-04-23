@@ -3,6 +3,7 @@ import React from 'react'
 import { Container } from '@mui/material'
 import { Routes, Route, useLocation } from 'react-router-dom'
 
+import ProtectedRoute from './components/ProtectedRoute'
 import { MainLayout, AuthLayout } from './layouts'
 import { AuthModal } from './layouts/AuthModal'
 import {
@@ -28,7 +29,14 @@ const App = () => {
       <Routes location={state?.backgroundLocation || location}>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<PlantCatalogPage />} />
-          <Route path="plant-list" element={<PlantListPage />} />
+          <Route
+            path="plant-list"
+            element={
+              <ProtectedRoute>
+                <PlantListPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="profile" element={<AccountPage />} />
         </Route>
         <Route path="/auth/" element={<AuthLayout />}>
