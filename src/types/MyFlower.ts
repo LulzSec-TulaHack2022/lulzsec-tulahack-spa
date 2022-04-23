@@ -1,7 +1,7 @@
 export type MyFlower = {
   id: number
   name: string
-  nameNomenclature: string
-  needWater: boolean
+  name_nomenclature: string
+  need_water: boolean
   alive: boolean
 }

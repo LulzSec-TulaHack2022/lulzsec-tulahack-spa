@@ -27,12 +27,11 @@ const Header = () => {
               component={NavLink}
               to="/"
               onClick={() => dispatch(removeUser())}
-              variant="contained"
             >
               Выйти
             </Button>
           ) : (
-            <Button component={NavLink} to="/auth/sign-in" variant="contained">
+            <Button component={NavLink} to="/auth/sign-in">
               Войти
             </Button>
           )}
