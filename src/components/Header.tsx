@@ -4,7 +4,7 @@ import { Typography, Stack, Button, Box } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { NavLink, useLocation } from 'react-router-dom'
 
-import { useIsAuth } from '../hooks'
+import { useIsAuth, useUser } from '../hooks'
 import { removeUser } from '../store/slices/user-slice'
 
 const Header = () => {
@@ -12,6 +12,7 @@ const Header = () => {
   const location = useLocation()
 
   const isAuth = useIsAuth()
+  const { user } = useUser()
 
   return (
     <Box position="static" sx={{ p: 1, width: '100%' }}>
@@ -20,13 +21,7 @@ const Header = () => {
           LulzPlants
         </Typography>
         {isAuth ? (
-          <Button
-            component={NavLink}
-            to="/"
-            onClick={() => dispatch(removeUser())}
-          >
-            Выйти
-          </Button>
+          <Typography>{user.email}</Typography>
         ) : (
           <Button
             component={NavLink}

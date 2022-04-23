@@ -73,7 +73,12 @@ const PlantCardItem: FunctionComponent<Props> = props => {
             ) : null}
           </Box>
           {!watered && (
-            <Button variant="vera" size="small" onClick={markWateringPlant}>
+            <Button
+              variant="vera"
+              size="small"
+              fullWidth
+              onClick={markWateringPlant}
+            >
               Я полил(а) растение
             </Button>
           )}

@@ -15,6 +15,7 @@ const BottomNav = () => {
       showLabels={true}
       value={location.pathname}
       onChange={(event, newValue) => navigate(newValue)}
+      sx={{ background: 'none' }}
     >
       <BottomNavigationAction
         label="Каталог"
