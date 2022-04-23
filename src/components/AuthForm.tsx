@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { TextField, Typography, Button, Stack } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { NavLink } from 'react-router-dom'
 
-const AuthForm = ({ onSubmit, title, buttonText, navLinkText, link }) => {
+export const AuthForm: FC<any> = ({
+  onSubmit,
+  title,
+  buttonText,
+  navLinkText,
+  link,
+}) => {
   const { register, handleSubmit } = useForm({ mode: 'onSubmit' })
 
   return (

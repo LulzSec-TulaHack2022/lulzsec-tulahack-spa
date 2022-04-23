@@ -2,10 +2,10 @@ import React from 'react'
 
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 
-import AuthForm from '../components/auth-form'
+import AuthForm from '../components/AuthForm'
 import { useAuth } from '../hooks'
 
-const SignUpPage = () => {
+export const SignUpPage = () => {
   const signUp = useAuth(createUserWithEmailAndPassword)
 
   return (
@@ -13,7 +13,7 @@ const SignUpPage = () => {
       onSubmit={signUp}
       title={'Регистрация'}
       buttonText={'Зарегистрироваться'}
-      navLinkText={'Уже есть аккаунт? Войти ->'}
+      navLinkText={'Уже есть аккаунт? Войти'}
       link={'/auth/sign-in'}
     />
   )

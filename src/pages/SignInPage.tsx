@@ -2,7 +2,7 @@ import React from 'react'
 
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
-import AuthForm from '../components/auth-form'
+import AuthForm from '../components/AuthForm'
 import { useAuth } from '../hooks'
 
 const SignInPage = () => {
@@ -13,7 +13,7 @@ const SignInPage = () => {
       onSubmit={signIn}
       title={'Вход'}
       buttonText={'Войти'}
-      navLinkText={'Ещё нет аккаунта? Зарегистрироваться ->'}
+      navLinkText={'Ещё нет аккаунта? Зарегистрироваться'}
       link={'/auth/sign-up'}
     />
   )

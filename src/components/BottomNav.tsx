@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'
@@ -22,18 +22,18 @@ const BottomNav = () => {
         onChange={(event, newValue) => navigate(newValue)}
       >
         <BottomNavigationAction
-          label={'Каталог'}
-          value={'/'}
+          label="Каталог"
+          value="/"
           icon={<FormatListBulletedIcon />}
         />
         <BottomNavigationAction
-          label={'Мои растения'}
-          value={'/plant-list'}
+          label="Мои растения"
+          value="/plant-list"
           icon={<FavoriteIcon />}
         />
         <BottomNavigationAction
-          label={'Аккаунт'}
-          value={'/user'}
+          label="Аккаунт"
+          value="/user"
           icon={<PersonIcon />}
         />
       </BottomNavigation>

@@ -3,7 +3,7 @@ import React from 'react'
 import { Container } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 
-import { MainLayout, AuthLayout } from '../layouts'
+import { MainLayout, AuthLayout } from './layouts'
 import {
   PlantCreatingPage,
   PlantDetailsPage,
@@ -13,14 +13,14 @@ import {
   SignUpPage,
   UserPage,
   Page404,
-} from '../pages'
+} from './pages'
 
 const App = () => {
   return (
     <Container component="main" maxWidth="xs">
       <Routes>
         <Route path={'/'} element={<MainLayout />}>
-          <Route index exact element={<PlantSelectionPage />} />
+          <Route index element={<PlantSelectionPage />} />
           <Route path={'plant-creating'} element={<PlantCreatingPage />} />
           <Route path={'plant-list'} element={<PlantListPage />} />
           <Route path={'plant-details'} element={<PlantDetailsPage />} />

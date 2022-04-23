@@ -3,8 +3,8 @@ import React from 'react'
 import { Stack } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 
-import BottomNav from '../components/bottom-nav'
-import Header from '../components/header'
+import BottomNav from '../components/BottomNav'
+import Header from '../components/Header'
 
 const MainLayout = () => {
   return (
