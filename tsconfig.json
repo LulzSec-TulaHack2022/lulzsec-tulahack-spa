@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "./",
     "target": "es5",
     "lib": [
       "dom",
@@ -22,7 +24,10 @@
     "jsx": "react-jsx",
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "@lulz/*": ["src/*"]
+    }
   },
   "include": [
     "src"
