@@ -3,7 +3,16 @@ import React from 'react'
 import InvertColorsIcon from '@mui/icons-material/InvertColors'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ThermostatIcon from '@mui/icons-material/Thermostat'
-import { Box, Chip, Stack, Typography, Modal, Button } from '@mui/material'
+import {
+  Box,
+  Chip,
+  Stack,
+  Typography,
+  Button,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from '@mui/material'
 
 import { FlowerInfo } from '../types'
 
@@ -19,17 +28,15 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
   plantInfo,
 }) => {
   return (
-    <Modal open={open} onClose={onClose} disableAutoFocus={true}>
-      <Box
-        position="absolute"
-        top="50%"
-        left="50%"
-        width="97%"
-        sx={{ transform: 'translate(-50%, -50%)', backgroundColor: 'white' }}
-        p={2}
-      >
-        <Typography variant="h6" mb={1} fontSize={18} fontWeight={700}>
+    <Dialog open={open} onClose={onClose} maxWidth="xs">
+      <DialogTitle>
+        <Typography mb={1} fontSize={22} fontWeight={700}>
           {plantInfo.name}
+        </Typography>
+      </DialogTitle>
+      <DialogContent>
+        <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
+          Описание
         </Typography>
         <Typography mb={2.5}>{plantInfo.description}</Typography>
         <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
@@ -57,8 +64,8 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
         <Box textAlign="center">
           <Button>Добавить растение</Button>
         </Box>
-      </Box>
-    </Modal>
+      </DialogContent>
+    </Dialog>
   )
 }
 

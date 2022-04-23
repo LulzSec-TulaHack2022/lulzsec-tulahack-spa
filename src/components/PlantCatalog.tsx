@@ -1,18 +1,73 @@
 import React, { useState } from 'react'
 
-import { Button, Typography, Box, Paper, Link } from '@mui/material'
+import { Button, Typography, Box, Paper, Link, Skeleton } from '@mui/material'
+import { useQuery } from 'react-query'
 import SwipableViews from 'react-swipeable-views'
 
+import { getPlantCatalog } from '../api'
+import { getImgByName } from '../api/imgPlantsMap'
+import PlantCreating from '../components/PlantCreating'
 import { useIsAuth } from '../hooks'
-import stubPlants from '../stub-flowers'
 
 import PlantInfoModal from './PlantInfoModal'
 
 const PlantCatalog: React.FC = () => {
   const [index, setIndex] = useState(0)
-  const [modalOpen, setModalOpen] = useState(false)
+  const [plantInfoOpen, setPlantInfoOpen] = useState(false)
+  const [plantCreatingOpen, setPlantCreatingOpen] = useState(false)
 
   const isAuth = useIsAuth()
+
+  const { data, isLoading } = useQuery('plantCatalog', async () =>
+    getPlantCatalog(),
+  )
+
+  if (isLoading) {
+    return (
+      <SwipableViews
+        index={index}
+        enableMouseEvents={true}
+        onChangeIndex={setIndex}
+      >
+        {[1, 2, 3].map((n, idx) => {
+          return (
+            <Box key={idx} p={1}>
+              <Skeleton
+                variant="rectangular"
+                height={350}
+                sx={{
+                  borderRadius: 2,
+                  width: '100%',
+                  marginTop: 1.1,
+                  marginBottom: 1.1,
+                }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={30}
+                width={50}
+                sx={{ borderRadius: 2, marginBottom: 1 }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={100}
+                sx={{ borderRadius: 2, width: '100%' }}
+              />
+            </Box>
+          )
+        })}
+        <Box textAlign="center">
+          <Typography variant="overline" color="text.secondary">
+            ← Сдвигай →
+          </Typography>
+        </Box>
+      </SwipableViews>
+    )
+  }
+
+  if (!data) {
+    return null
+  }
 
   return (
     <Box>
@@ -21,11 +76,11 @@ const PlantCatalog: React.FC = () => {
         enableMouseEvents={true}
         onChangeIndex={setIndex}
       >
-        {stubPlants.map((plantInfo, idx) => (
+        {data.map((plantInfo, idx) => (
           <Box key={idx} p={1}>
             <Box my={1.1} height={350}>
               <img
-                src={plantInfo.img}
+                src={getImgByName(plantInfo.name)}
                 alt="plant"
                 style={{ width: '100%', height: '100%' }}
               />
@@ -43,18 +98,18 @@ const PlantCatalog: React.FC = () => {
                 >
                   {plantInfo.description}
                 </Typography>
-                <Link underline="always" onClick={() => setModalOpen(true)}>
+                <Link underline="always" onClick={() => setPlantInfoOpen(true)}>
                   Подробнее
                 </Link>
-                <PlantInfoModal
-                  open={modalOpen}
-                  onClose={() => setModalOpen(false)}
-                  plantInfo={stubPlants[index]}
-                />
               </Box>
             </Paper>
           </Box>
         ))}
+        <PlantInfoModal
+          open={plantInfoOpen}
+          onClose={() => setPlantInfoOpen(false)}
+          plantInfo={data[index]}
+        />
       </SwipableViews>
       <Box textAlign="center">
         <Typography variant="overline" color="text.secondary">
@@ -63,7 +118,14 @@ const PlantCatalog: React.FC = () => {
       </Box>
       {isAuth && (
         <Box textAlign="center" mt={2}>
-          <Button variant="vera">Добавить растение</Button>
+          <Button variant="vera" onClick={() => setPlantCreatingOpen(true)}>
+            Добавить растение
+          </Button>
+          <PlantCreating
+            open={plantCreatingOpen}
+            onClose={() => setPlantCreatingOpen(false)}
+            plantInfo={data[index]}
+          />
         </Box>
       )}
     </Box>

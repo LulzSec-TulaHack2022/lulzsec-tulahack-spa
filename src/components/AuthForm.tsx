@@ -26,12 +26,14 @@ export const AuthForm: FC<any> = ({
         <TextField
           label="Введите email"
           variant="filled"
+          value="admin@gmail.com"
           inputProps={{ ...register('email') }}
           fullWidth
         />
         <TextField
           label="Введите пароль"
           variant="filled"
+          value="123456"
           inputProps={{ ...register('password') }}
           fullWidth
         />

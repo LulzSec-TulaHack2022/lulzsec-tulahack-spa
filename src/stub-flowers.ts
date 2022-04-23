@@ -9,8 +9,6 @@ const stubFlowers: Array<FlowerInfo> = [
     temperature: 'low',
     humidity: 'low',
     illumination: 'low',
-    wikiLink: 'string',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/A_rose_flower.jpg/440px-A_rose_flower.jpg',
   },
   {
     id: 2,
@@ -20,8 +18,6 @@ const stubFlowers: Array<FlowerInfo> = [
     temperature: 'low',
     humidity: 'low',
     illumination: 'low',
-    wikiLink: 'string',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mimosa_pudica_003.JPG/550px-Mimosa_pudica_003.JPG',
   },
 ]
 
