@@ -1,10 +1,12 @@
 import React from 'react'
 
 import { Container } from '@mui/material'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 
 import { MainLayout, AuthLayout } from './layouts'
+import { AuthModal } from './layouts/AuthModal'
 import {
+  AccountPage,
   SignInPage,
   SignUpPage,
   Page404,
@@ -13,16 +15,21 @@ import {
 } from './pages'
 
 const App = () => {
+  const location = useLocation()
+
+  const state = location.state as { backgroundLocation?: Location }
+
   return (
     <Container
       component="main"
       maxWidth="xs"
       sx={{ p: 0, height: '100vh', backgroundColor: 'white' }}
     >
-      <Routes>
+      <Routes location={state?.backgroundLocation || location}>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<PlantCatalogPage />} />
           <Route path="plant-list" element={<PlantListPage />} />
+          <Route path="profile" element={<AccountPage />} />
         </Route>
         <Route path="/auth/" element={<AuthLayout />}>
           <Route path="sign-in" element={<SignInPage />} />
@@ -30,6 +37,15 @@ const App = () => {
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
+
+      {state?.backgroundLocation && (
+        <Routes>
+          <Route path="/auth/" element={<AuthModal />}>
+            <Route path="sign-in" element={<SignInPage />} />
+            <Route path="sign-up" element={<SignUpPage />} />
+          </Route>
+        </Routes>
+      )}
     </Container>
   )
 }

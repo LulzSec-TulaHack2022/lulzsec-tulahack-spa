@@ -55,11 +55,7 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
           />
         </Stack>
         <Box textAlign="center">
-          <Button>
-            <Typography fontSize={17} fontWeight={700}>
-              Добавить растение
-            </Typography>
-          </Button>
+          <Button>Добавить растение</Button>
         </Box>
       </Box>
     </Modal>

@@ -59,11 +59,7 @@ const PlantCatalog: React.FC = () => {
         </Typography>
       </Box>
       <Box textAlign="center" mt={2}>
-        <Button>
-          <Typography fontSize={17} fontWeight={700}>
-            Добавить растение
-          </Typography>
-        </Button>
+        <Button>Добавить растение</Button>
       </Box>
     </Box>
   )

@@ -1,14 +1,16 @@
 import React from 'react'
 
-import { Typography, Container, Stack, Button, Box } from '@mui/material'
+import { Typography, Stack, Button, Box } from '@mui/material'
 import { useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { useIsAuth } from '../hooks'
 import { removeUser } from '../store/slices/user-slice'
 
 const Header = () => {
   const dispatch = useDispatch()
+  const location = useLocation()
+
   const isAuth = useIsAuth()
 
   return (
@@ -26,7 +28,11 @@ const Header = () => {
             Выйти
           </Button>
         ) : (
-          <Button component={NavLink} to="/auth/sign-in">
+          <Button
+            component={NavLink}
+            to="/auth/sign-in"
+            state={{ backgroundLocation: location }}
+          >
             Войти
           </Button>
         )}

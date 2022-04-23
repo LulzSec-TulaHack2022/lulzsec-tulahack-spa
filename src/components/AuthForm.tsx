@@ -15,23 +15,21 @@ export const AuthForm: FC<any> = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Stack alignItems="center" spacing={4}>
-        <Typography variant="h1" fontSize={29}>
-          {title}
-        </Typography>
+      <Stack alignItems="center" spacing={2}>
+        <Typography variant="h4">{title}</Typography>
         <TextField
           label="Введите email"
           variant="filled"
           inputProps={{ ...register('email') }}
-          fullWidth={true}
+          fullWidth
         />
         <TextField
           label="Введите пароль"
           variant="filled"
           inputProps={{ ...register('password') }}
-          fullWidth={true}
+          fullWidth
         />
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="contained" fullWidth>
           {buttonText}
         </Button>
         <NavLink to={link}>{navLinkText}</NavLink>
