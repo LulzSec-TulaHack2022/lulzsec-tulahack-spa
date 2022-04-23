@@ -21,6 +21,7 @@
         "*.mjs"
     ],
     "rules": {
+        "react/prop-types": 0,
         "quotes": [
             "error",
             "single"
@@ -35,14 +36,6 @@
             }
         ],
         "@typescript-eslint/no-unused-vars": 2,
-        "import/no-unresolved": [
-            2,
-            {
-                "ignore": [
-                    "@nenashev/*"
-                ]
-            }
-        ],
         "import/order": [
             "error",
             {
@@ -91,7 +84,8 @@
         //         "reservedFirst": true
         //     }
         // ],
-        "no-unsafe-optional-chaining": "error"
+        "no-unsafe-optional-chaining": "error",
+        "react/jsx-curly-brace-presence": ["error", "never"]
         // "react/jsx-curly-brace-presence": [
         //     "error",
         //     "never"
