@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AppBar, Typography, Container, Stack, Button } from '@mui/material'
+import { Typography, Container, Stack, Button, Box } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
@@ -9,46 +9,36 @@ import { removeUser } from '../store/slices/user-slice'
 
 const Header = () => {
   const dispatch = useDispatch()
+  const isAuth = useIsAuth()
 
   return (
-    <AppBar
-      position="static"
-      sx={{ backgroundColor: 'white', padding: '10px 0' }}
-    >
-      <Container maxWidth="xl">
+    <Box position="static" sx={{ py: 1, width: '100%' }}>
+      <Container maxWidth="md">
         <Stack
           direction="row"
           justifyContent="space-between"
           alignItems="center"
         >
-          <NavLink to={'/'}>
-            <Typography
-              variant="h2"
-              fontSize={17}
-              fontWeight={700}
-              color={'gray'}
+          <Typography variant="h6" fontWeight={700}>
+            LulzPlants
+          </Typography>
+          {isAuth ? (
+            <Button
+              component={NavLink}
+              to="/"
+              onClick={() => dispatch(removeUser())}
+              variant="contained"
             >
-              LulzPlants
-            </Typography>
-          </NavLink>
-          {useIsAuth() ? (
-            <NavLink to={'/'}>
-              <Button
-                onClick={() => dispatch(removeUser())}
-                variant={'outlined'}
-                color={'error'}
-              >
-                Выйти
-              </Button>
-            </NavLink>
+              Выйти
+            </Button>
           ) : (
-            <NavLink to={'/auth/sign-in'}>
-              <Button variant={'outlined'}>Войти</Button>
-            </NavLink>
+            <Button component={NavLink} to="/auth/sign-in" variant="contained">
+              Войти
+            </Button>
           )}
         </Stack>
       </Container>
-    </AppBar>
+    </Box>
   )
 }
 

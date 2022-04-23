@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ThemeProvider } from '@mui/material'
+import { CssBaseline, ThemeProvider } from '@mui/material'
 import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Provider } from 'react-redux'
@@ -31,6 +31,7 @@ root.render(
       <Provider store={store}>
         <BrowserRouter>
           <ThemeProvider theme={theme}>
+            <CssBaseline />
             <App />
           </ThemeProvider>
         </BrowserRouter>

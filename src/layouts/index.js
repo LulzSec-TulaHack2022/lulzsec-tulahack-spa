@@ -1,4 +1,4 @@
 import AuthLayout from './auth-layout'
-import MainLayout from './main-layout'
+import MainLayout from './MainLayout'
 
 export { AuthLayout, MainLayout }

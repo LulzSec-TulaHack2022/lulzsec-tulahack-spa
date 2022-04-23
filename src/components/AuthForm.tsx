@@ -15,8 +15,8 @@ export const AuthForm: FC<any> = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Stack alignItems={'center'} spacing={4}>
-        <Typography variant={'h1'} fontSize={29}>
+      <Stack alignItems="center" spacing={4}>
+        <Typography variant="h1" fontSize={29}>
           {title}
         </Typography>
         <TextField
@@ -31,7 +31,7 @@ export const AuthForm: FC<any> = ({
           inputProps={{ ...register('password') }}
           fullWidth={true}
         />
-        <Button type={'submit'} variant={'contained'}>
+        <Button type="submit" variant="contained">
           {buttonText}
         </Button>
         <NavLink to={link}>{navLinkText}</NavLink>

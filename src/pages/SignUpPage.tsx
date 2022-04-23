@@ -11,10 +11,10 @@ export const SignUpPage = () => {
   return (
     <AuthForm
       onSubmit={signUp}
-      title={'Регистрация'}
-      buttonText={'Зарегистрироваться'}
-      navLinkText={'Уже есть аккаунт? Войти'}
-      link={'/auth/sign-in'}
+      title="Регистрация"
+      buttonText="Зарегистрироваться"
+      navLinkText="Уже есть аккаунт? Войти"
+      link="/auth/sign-in"
     />
   )
 }
