@@ -4,7 +4,13 @@ import { Container } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 
 import { MainLayout, AuthLayout } from './layouts'
-import { SignInPage, SignUpPage, Page404, PlantCatalogPage } from './pages'
+import {
+  SignInPage,
+  SignUpPage,
+  Page404,
+  PlantCatalogPage,
+  PlantListPage,
+} from './pages'
 
 const App = () => {
   return (
