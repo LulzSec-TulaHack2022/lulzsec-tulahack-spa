@@ -4,10 +4,9 @@ import AddIcon from '@mui/icons-material/AddRounded'
 import { Box, Button, Fab, Skeleton, Stack, Typography } from '@mui/material'
 import { useQuery } from 'react-query'
 
-import { getMyPlants } from '@lulz/api'
-import PlantCardItem from '@lulz/components/PlantCardItem'
-import withProtectedRoute from '@lulz/components/withProtectedRoute'
-import { useUser } from '@lulz/hooks'
+import { getMyPlants } from '../../api'
+import PlantCardItem from '../../components/PlantCardItem'
+import { useUser } from '../../hooks'
 
 export const PlantListPage = () => {
   const { user } = useUser()
@@ -72,5 +71,3 @@ export const PlantListPage = () => {
     </Box>
   )
 }
-
-export default withProtectedRoute(PlantListPage)

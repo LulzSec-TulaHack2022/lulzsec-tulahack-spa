@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Button, Typography, Box, Paper, Link } from '@mui/material'
 import SwipableViews from 'react-swipeable-views'
 
+import { useIsAuth } from '../hooks'
 import stubPlants from '../stub-flowers'
 
 import PlantInfoModal from './PlantInfoModal'
@@ -10,6 +11,8 @@ import PlantInfoModal from './PlantInfoModal'
 const PlantCatalog: React.FC = () => {
   const [index, setIndex] = useState(0)
   const [modalOpen, setModalOpen] = useState(false)
+
+  const isAuth = useIsAuth()
 
   return (
     <Box>
@@ -58,13 +61,15 @@ const PlantCatalog: React.FC = () => {
           ← Сдвигай →
         </Typography>
       </Box>
-      <Box textAlign="center" mt={2}>
-        <Button>
-          <Typography fontSize={17} fontWeight={700}>
-            Добавить растение
-          </Typography>
-        </Button>
-      </Box>
+      {isAuth && (
+        <Box textAlign="center" mt={2}>
+          <Button variant="vera">
+            <Typography fontSize={17} fontWeight={700}>
+              Добавить растение
+            </Typography>
+          </Button>
+        </Box>
+      )}
     </Box>
   )
 }

@@ -12,25 +12,45 @@ const Header = () => {
   const isAuth = useIsAuth()
 
   return (
-    <Box position="static" sx={{ p: 1, width: '100%' }}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography variant="h6" fontWeight={300} fontFamily="Montserrat">
-          LulzPlants
-        </Typography>
-        {isAuth ? (
-          <Button
-            component={NavLink}
-            to="/"
-            onClick={() => dispatch(removeUser())}
-          >
-            Выйти
-          </Button>
-        ) : (
-          <Button component={NavLink} to="/auth/sign-in">
-            Войти
-          </Button>
-        )}
-      </Stack>
+    <Box position="static" sx={{ py: 1, width: '100%' }}>
+      <Container
+        maxWidth="xs"
+        sx={{
+          padding: '15px 0',
+          boxShadow: '0px 4px 10px rgba(136, 136, 136, 0.14)',
+          backgroundColor: '#ffffff',
+        }}
+      >
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Typography variant="h6" fontWeight={700}>
+            LulzPlants
+          </Typography>
+          {isAuth ? (
+            <Button
+              component={NavLink}
+              to="/"
+              onClick={() => dispatch(removeUser())}
+              variant="contained"
+              color="secondary"
+            >
+              Выйти
+            </Button>
+          ) : (
+            <Button
+              component={NavLink}
+              to="/auth/sign-in"
+              variant="contained"
+              color="primary"
+            >
+              Войти
+            </Button>
+          )}
+        </Stack>
+      </Container>
     </Box>
   )
 }

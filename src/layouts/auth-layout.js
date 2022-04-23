@@ -7,7 +7,7 @@ const AuthLayout = () => {
   return (
     <React.Fragment>
       <Stack
-        sx={{ minHeight: '100vh', border: '1px solid black' }}
+        sx={{ minHeight: '100vh' }}
         justifyContent="center"
         alignItems="center"
       >
