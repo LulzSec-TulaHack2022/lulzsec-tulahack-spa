@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Container } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import { Routes, Route, useLocation } from 'react-router-dom'
 
 import ProtectedRoute from './components/ProtectedRoute'
@@ -24,7 +24,16 @@ const App = () => {
     <Container
       component="main"
       maxWidth="xs"
-      sx={{ p: 0, height: '100vh', backgroundColor: 'white' }}
+      sx={{
+        position: 'relative',
+        p: 0,
+        boxSizing: 'border-box',
+        backgroundColor: '#fff',
+        my: { xs: 0, sm: 2 },
+        height: { xs: '100vh', sm: 'calc(100vh - 32px)' },
+        maxHeight: { xs: 'none', sm: '900px' },
+        borderRadius: { xs: 0, sm: 2 },
+      }}
     >
       <Routes location={state?.backgroundLocation || location}>
         <Route path="/" element={<MainLayout />}>
@@ -54,6 +63,15 @@ const App = () => {
           </Route>
         </Routes>
       )}
+
+      <Box
+        position="absolute"
+        bottom={-32}
+        left={0}
+        display={{ xs: 'none', sm: 'block' }}
+      >
+        <Typography color="white">LulzPlants #TulaHack2022</Typography>
+      </Box>
     </Container>
   )
 }

@@ -12,6 +12,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import store from './store/store'
 import { theme } from './theme'
 import './firebase'
+import './index.css'
 
 const queryClient = new QueryClient({
   defaultOptions: {
