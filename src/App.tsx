@@ -4,11 +4,21 @@ import { Container } from '@mui/material'
 import { Routes, Route } from 'react-router-dom'
 
 import { MainLayout, AuthLayout } from './layouts'
-import { SignInPage, SignUpPage, Page404, PlantCatalogPage } from './pages'
+import {
+  SignInPage,
+  SignUpPage,
+  Page404,
+  PlantCatalogPage,
+  PlantListPage,
+} from './pages'
 
 const App = () => {
   return (
-    <Container component="main" maxWidth="xs" sx={{ p: 0, height: '100vh' }}>
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{ p: 0, height: '100vh', backgroundColor: 'white' }}
+    >
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<PlantCatalogPage />} />

@@ -12,8 +12,15 @@ const Header = () => {
   const isAuth = useIsAuth()
 
   return (
-    <Box position="static" sx={{ py: 1, width: '100%' }}>
-      <Container maxWidth="md">
+    <Box>
+      <Container
+        maxWidth="xs"
+        sx={{
+          padding: '15px 0',
+          boxShadow: '0px 4px 10px rgba(136, 136, 136, 0.14)',
+          backgroundColor: '#ffffff',
+        }}
+      >
         <Stack
           direction="row"
           justifyContent="space-between"

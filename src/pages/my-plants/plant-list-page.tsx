@@ -4,7 +4,7 @@ import { Box, Stack, Typography } from '@mui/material'
 import { useQuery } from 'react-query'
 
 import { getMyPlants } from '../../api'
-import PlantCardItem from '../../components/molecules/PlantCardItem'
+import PlantCardItem from '../../components/PlantCardItem'
 import withProtectedRoute from '../../components/withProtectedRoute'
 import { useUser } from '../../hooks'
 
