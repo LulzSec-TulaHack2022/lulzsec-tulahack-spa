@@ -19,7 +19,7 @@ export function PlantActions() {
   return (
     <>
       <IconButton
-        sx={{ position: 'absolute', top: 4, right: 4 }}
+        sx={{ position: 'absolute', top: 32, right: 4 }}
         {...bindTrigger(popupState)}
       >
         <MoreHorizIcon />

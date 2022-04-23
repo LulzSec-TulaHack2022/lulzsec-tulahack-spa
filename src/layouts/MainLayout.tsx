@@ -10,7 +10,7 @@ const MainLayout = () => {
   return (
     <Stack justifyContent="space-between" alignItems="stretch" height="100%">
       <Header />
-      <Box flexGrow={1} flexShrink={1} overflow="auto">
+      <Box flexGrow={1} flexShrink={1} overflow="auto" py={1}>
         <Outlet />
       </Box>
       <BottomNav />

@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState } from 'react'
 
 import { Box, Button, Stack, Typography } from '@mui/material'
 
+import { getImgByName } from '../api/imgPlantsMap'
 import { MyFlower } from '../types'
 
 import { PlantActions } from './my-plants/PlantActions'
@@ -29,22 +30,40 @@ const PlantCardItem: FunctionComponent<Props> = props => {
 
   return (
     <Box p={1} position="relative">
-      <Stack direction="row" alignItems="stretch" spacing={2}>
+      <Stack direction="row" alignItems="stretch" spacing={2} mt="40px">
         <Box
           sx={{
-            bgcolor: 'grey.200',
             width: 130,
             height: 130,
-            borderRadius: 1,
-            fontSize: 50,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
+          mt="-40px"
         >
-          🌻
+          <img
+            src={getImgByName(nameNomenclature)}
+            alt={`${name} (${nameNomenclature})`}
+            style={{
+              height: '100%',
+              zIndex: 2,
+            }}
+          />
+          <Box
+            sx={{
+              bgcolor: 'grey.200',
+              width: 130,
+              height: '70%',
+              borderRadius: 2,
+              fontSize: 50,
+              position: 'absolute',
+              bottom: 0,
+              zIndex: 1,
+            }}
+          />
         </Box>
         <Stack spacing={0.5}>
-          <Typography fontWeight="bold" fontSize="1.2rem">
-            {name}
-          </Typography>
+          <Typography fontWeight="bold">{name}</Typography>
           <Typography color="text.secondary">{nameNomenclature}</Typography>
           <Box height="1.5rem">
             {watered ? (
