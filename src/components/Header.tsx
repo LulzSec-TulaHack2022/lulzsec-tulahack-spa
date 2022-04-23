@@ -21,29 +21,29 @@ const Header = () => {
           justifyContent="space-between"
           alignItems="center"
         >
-          <NavLink to={'/'}>
+          <NavLink to="/">
             <Typography
               variant="h2"
               fontSize={17}
               fontWeight={700}
-              color={'gray'}
+              color="gray"
             >
               LulzPlants
             </Typography>
           </NavLink>
           {useIsAuth() ? (
-            <NavLink to={'/'}>
+            <NavLink to="/">
               <Button
                 onClick={() => dispatch(removeUser())}
-                variant={'outlined'}
-                color={'error'}
+                variant="outlined"
+                color="error"
               >
                 Выйти
               </Button>
             </NavLink>
           ) : (
-            <NavLink to={'/auth/sign-in'}>
-              <Button variant={'outlined'}>Войти</Button>
+            <NavLink to="/auth/sign-in">
+              <Button variant="outlined">Войти</Button>
             </NavLink>
           )}
         </Stack>

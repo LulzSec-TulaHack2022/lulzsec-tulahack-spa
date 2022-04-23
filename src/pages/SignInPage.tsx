@@ -5,18 +5,16 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import AuthForm from '../components/AuthForm'
 import { useAuth } from '../hooks'
 
-const SignInPage = () => {
+export const SignInPage = () => {
   const signIn = useAuth(signInWithEmailAndPassword)
 
   return (
     <AuthForm
       onSubmit={signIn}
-      title={'Вход'}
-      buttonText={'Войти'}
-      navLinkText={'Ещё нет аккаунта? Зарегистрироваться'}
-      link={'/auth/sign-up'}
+      title="Вход"
+      buttonText="Войти"
+      navLinkText="Ещё нет аккаунта? Зарегистрироваться"
+      link="/auth/sign-up"
     />
   )
 }
-
-export default SignInPage

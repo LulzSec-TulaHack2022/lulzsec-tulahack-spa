@@ -3,7 +3,7 @@ import React, { FunctionComponent, useState } from 'react'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material'
 
-import { MyFlower } from '../../types'
+import { MyFlower } from '../types'
 
 interface OwnProps {
   flower: MyFlower
@@ -36,11 +36,11 @@ const PlantCardItem: FunctionComponent<Props> = props => {
         <Stack spacing={0.25}>
           <Typography variant="h5">{name}</Typography>
           <Typography color="text.secondary">{nomenclatureName}</Typography>
-          <Box height={'1rem'}>
+          <Box height="1rem">
             {watered ? (
-              <Typography color={'text.success'}>Растение полито!</Typography>
+              <Typography color="text.success">Растение полито!</Typography>
             ) : needWater ? (
-              <Typography color={'text.danger'}>Полейте растение!</Typography>
+              <Typography color="text.danger">Полейте растение!</Typography>
             ) : null}
           </Box>
           <Button variant="contained" onClick={markWateringPlant}>
