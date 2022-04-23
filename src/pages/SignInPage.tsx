@@ -11,10 +11,10 @@ const SignInPage = () => {
   return (
     <AuthForm
       onSubmit={signIn}
-      title={'Вход'}
-      buttonText={'Войти'}
-      navLinkText={'Ещё нет аккаунта? Зарегистрироваться'}
-      link={'/auth/sign-up'}
+      title="Вход"
+      buttonText="Войти"
+      navLinkText="Ещё нет аккаунта? Зарегистрироваться"
+      link="/auth/sign-up"
     />
   )
 }
