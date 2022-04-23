@@ -1,11 +1,11 @@
 import React from 'react'
-import { signInWithEmailAndPassword } from "firebase/auth";
 
-import AuthForm from "../components/auth-form";
+import { signInWithEmailAndPassword } from 'firebase/auth'
+
+import AuthForm from '../components/auth-form'
 import { useAuth } from '../hooks'
 
 const SignInPage = () => {
-
   const signIn = useAuth(signInWithEmailAndPassword)
 
   return (

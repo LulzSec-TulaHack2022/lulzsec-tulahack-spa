@@ -4,7 +4,6 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material'
 
 const PlantCard = ({ name, nomenclatureName, needWater }) => {
-
   const [watered, setWatered] = useState(!needWater)
 
   const markWateringPlant = () => {

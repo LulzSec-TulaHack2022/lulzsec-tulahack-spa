@@ -1,8 +1,7 @@
 import React from 'react'
 
-import { Outlet } from 'react-router-dom'
-
 import { Stack } from '@mui/material'
+import { Outlet } from 'react-router-dom'
 
 const AuthLayout = () => {
   return (
@@ -12,7 +11,7 @@ const AuthLayout = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Outlet/>
+        <Outlet />
       </Stack>
     </React.Fragment>
   )

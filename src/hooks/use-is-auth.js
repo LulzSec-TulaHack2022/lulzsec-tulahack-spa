@@ -6,4 +6,4 @@ const useIsAuth = () => {
   return user.email !== null && user.uid !== null
 }
 
-export default useIsAuth;
+export default useIsAuth

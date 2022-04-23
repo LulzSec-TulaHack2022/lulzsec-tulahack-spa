@@ -1,9 +1,7 @@
 import React from 'react'
 
 const PlantSelectionPage = () => {
-  return (
-    <p>PlantSelectionPage</p>
-  )
+  return <p>PlantSelectionPage</p>
 }
 
 export default PlantSelectionPage

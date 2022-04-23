@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
 
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'
+import PersonIcon from '@mui/icons-material/Person'
 import {
   BottomNavigation,
   BottomNavigationAction,
   Container,
 } from '@mui/material'
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import PersonIcon from '@mui/icons-material/Person'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const BottomNav = () => {
   const location = useLocation()
@@ -19,24 +19,22 @@ const BottomNav = () => {
       <BottomNavigation
         showLabels={true}
         value={location.pathname}
-        onChange={(event, newValue) =>
-          navigate(newValue)
-        }
+        onChange={(event, newValue) => navigate(newValue)}
       >
         <BottomNavigationAction
           label={'Каталог'}
           value={'/'}
-          icon={<FormatListBulletedIcon/>}
+          icon={<FormatListBulletedIcon />}
         />
         <BottomNavigationAction
           label={'Мои растения'}
           value={'/plant-list'}
-          icon={<FavoriteIcon/>}
+          icon={<FavoriteIcon />}
         />
         <BottomNavigationAction
           label={'Аккаунт'}
           value={'/user'}
-          icon={<PersonIcon/>}
+          icon={<PersonIcon />}
         />
       </BottomNavigation>
     </Container>

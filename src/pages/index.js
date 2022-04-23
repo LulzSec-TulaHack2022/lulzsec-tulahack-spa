@@ -1,11 +1,11 @@
-import PlantCreatingPage from "./plant-creating-page";
-import PlantDetailsPage from "./plant-details-page";
-import PlantListPage from "./plant-list-page";
-import PlantSelectionPage from "./plant-selection-page";
+import Page404 from './page-404'
+import PlantCreatingPage from './plant-creating-page'
+import PlantDetailsPage from './plant-details-page'
+import PlantListPage from './plant-list-page'
+import PlantSelectionPage from './plant-selection-page'
 import SignInPage from './sign-in-page'
-import SignUpPage from "./sign-up-page";
-import UserPage from "./user-page";
-import Page404 from "./page-404";
+import SignUpPage from './sign-up-page'
+import UserPage from './user-page'
 
 export {
   PlantCreatingPage,
@@ -15,5 +15,5 @@ export {
   SignInPage,
   SignUpPage,
   UserPage,
-  Page404
+  Page404,
 }

@@ -1,23 +1,26 @@
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { getAuth } from "firebase/auth";
-import { setUser } from "../store/slices/user-slice";
+import { getAuth } from 'firebase/auth'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
-const useAuth = (method) => {
+import { setUser } from '../store/slices/user-slice'
+
+const useAuth = method => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  return (user) => {
-    const auth = getAuth();
+  return user => {
+    const auth = getAuth()
     method(auth, user.email, user.password)
-      .then((userCredential) => {
-        dispatch(setUser({
-          email: userCredential.user.email,
-          uid: userCredential.user.uid
-        }))
+      .then(userCredential => {
+        dispatch(
+          setUser({
+            email: userCredential.user.email,
+            uid: userCredential.user.uid,
+          }),
+        )
         navigate('/')
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error))
   }
 }
 

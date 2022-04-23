@@ -1,12 +1,12 @@
 import React from 'react'
 
-import ProtectedRoute from "./protected-route";
+import ProtectedRoute from './protected-route'
 
-const withProtectedRoute = (Wrapped) => {
-  return (props) => {
+const withProtectedRoute = Wrapped => {
+  return props => {
     return (
       <ProtectedRoute>
-        <Wrapped {...props}/>
+        <Wrapped {...props} />
       </ProtectedRoute>
     )
   }
