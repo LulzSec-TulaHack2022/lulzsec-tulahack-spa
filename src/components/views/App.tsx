@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import { NavLinkValueList } from '../../types'
 import { BottomNavLayout } from '../layouts'
-import { PlantListPage, Page404 } from '../pages'
+import { PlantCatalogPage, Page404 } from '../pages'
 
 const App: React.FC = () => {
   return (
@@ -13,8 +13,8 @@ const App: React.FC = () => {
       <Routes>
         <Route element={<BottomNavLayout />}>
           <Route
-            path={NavLinkValueList.PlantSelectionPage}
-            element={<PlantListPage />}
+            path={NavLinkValueList.PlantCatalogPage}
+            element={<PlantCatalogPage />}
           />
           <Route
             path={NavLinkValueList.PlantCreatingPage}

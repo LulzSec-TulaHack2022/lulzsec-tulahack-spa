@@ -1,7 +1,7 @@
 import React from 'react'
 
-const PlantListPage: React.FC = () => {
+const PlantCatalogPage: React.FC = () => {
   return <React.Fragment>plant list</React.Fragment>
 }
 
-export default PlantListPage
+export default PlantCatalogPage

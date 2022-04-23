@@ -1,4 +1,4 @@
 import Page404 from './Page404'
-import PlantListPage from './PlantListPage'
+import PlantCatalogPage from './PlantCatalogPage'
 
-export { PlantListPage, Page404 }
+export { PlantCatalogPage, Page404 }

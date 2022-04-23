@@ -1,6 +1,6 @@
 import NavLinkValueList from './nav-link-value-list'
 
-import type { FlowerInfo } from './flower'
+import type { FlowerInfo } from './FlowerInfo'
 import type { NavLinkList, NavLink } from './nav-link-list'
 
 export type { NavLinkList, NavLink, FlowerInfo }
