@@ -80,6 +80,7 @@ const PlantCatalog: React.FC = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <VirtualizeSwipeableViews
+        style={{ flexGrow: 1 }}
         index={index}
         enableMouseEvents={true}
         onChangeIndex={i => {
@@ -107,7 +108,7 @@ const PlantCatalog: React.FC = () => {
               <Typography mb={2} variant="h2">
                 {plantInfo.name}
               </Typography>
-              <Paper elevation={2} sx={{ p: 2 }}>
+              <Paper elevation={3} sx={{ p: 2 }}>
                 <Typography
                   overflow="hidden"
                   textOverflow="ellipsis"
@@ -116,9 +117,11 @@ const PlantCatalog: React.FC = () => {
                 >
                   {plantInfo.description}
                 </Typography>
-                <Link underline="always" onClick={() => setPlantInfoOpen(true)}>
-                  Подробнее
-                </Link>
+                <Box onClick={() => setPlantInfoOpen(true)} width="100%" role='button'>
+                  <Link underline="always">
+                        Подробнее
+                  </Link>
+                </Box>
               </Paper>
             </Box>
           )
@@ -129,11 +132,10 @@ const PlantCatalog: React.FC = () => {
           ← Сдвигай →
         </Typography>
       </Box>
-      <Box flexGrow={1} />
       <Box textAlign="center" my={2} mx={0.5}>
         <Button
           fullWidth
-          variant="vera"
+          variant="veronika"
           size="medium"
           onClick={() =>
             isAuth

@@ -44,28 +44,23 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
         <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
           Уход
         </Typography>
-        <Stack mb={2.5}>
+        <Stack mb={2.5} gap={1} direction="row">
           <Chip
             icon={<LightModeIcon color="secondary" />}
             label={plantInfo.illumination}
-            variant="outlined"
+            //            variant="filled"
           />
-        </Stack>
-        <Stack direction="row" spacing={1} mb={2.5}>
           <Chip
             icon={<ThermostatIcon color="action" />}
             label={plantInfo.temperature}
-            variant="outlined"
+            //            variant="outlined"
           />
           <Chip
             icon={<InvertColorsIcon color="primary" />}
             label={plantInfo.humidity}
-            variant="outlined"
+            //            variant="outlined"
           />
         </Stack>
-        <Box textAlign="center">
-          <Button>Добавить растение</Button>
-        </Box>
       </DialogContent>
     </Dialog>
   )
