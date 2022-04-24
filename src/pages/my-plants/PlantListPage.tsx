@@ -4,14 +4,25 @@ import AddIcon from '@mui/icons-material/AddRounded'
 import { Box, Button, Fab, Skeleton, Stack, Typography } from '@mui/material'
 import { useQuery } from 'react-query'
 
-import { getMyPlants } from '../../api'
+import { getMyPlants, getWeather } from '../../api'
 import PlantCardItem from '../../components/PlantCardItem'
-import { useUser } from '../../hooks'
+import { usePosition, useUser } from '../../hooks'
 
 export const PlantListPage = () => {
   const { user } = useUser()
   const { data, isLoading } = useQuery('myPlantsList', async () =>
     getMyPlants(user.uid),
+  )
+
+  const { latitude, longitude } = usePosition()
+
+  const { data: weather, isLoading: isLoadingWeather } = useQuery(
+    'weather',
+    async () => getWeather({ latitude, longitude }),
+    {
+      // The query will not execute until the userId exists
+      enabled: Boolean(latitude && longitude),
+    },
   )
 
   if (isLoading) {
@@ -52,6 +63,7 @@ export const PlantListPage = () => {
   return (
     <Box position="relative">
       {/*<Button startIcon={<AddIcon />}>Новое растение</Button>*/}
+
       <Stack spacing={1}>
         {data?.map(plant => (
           <PlantCardItem flower={plant} key={plant.id} />

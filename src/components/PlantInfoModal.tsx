@@ -27,6 +27,8 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
   onClose,
   plantInfo,
 }) => {
+  if (!plantInfo) return null
+
   return (
     <Dialog open={open} onClose={onClose} maxWidth="xs">
       <DialogTitle>
