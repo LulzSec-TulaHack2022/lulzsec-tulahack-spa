@@ -1,9 +1,9 @@
 export const ImgPlantsMap = {
   Аглаонема: '/agla.png',
-  кактус: '/kaktus.png',
-  сансевиерия: '/sans.png',
+  Кактус: '/kaktus.png',
+  Сансевиерия: '/sans.png',
 }
 
 export const getImgByName = (nameNomenclature: string) => {
-  return ImgPlantsMap[nameNomenclature] || ImgPlantsMap['кактус']
+  return ImgPlantsMap[nameNomenclature] || ImgPlantsMap['Кактус']
 }

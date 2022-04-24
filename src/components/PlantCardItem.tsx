@@ -9,6 +9,7 @@ import { PlantActions } from './my-plants/PlantActions'
 
 interface OwnProps {
   flower: MyFlower
+  onDelete: (id: string) => void
 }
 
 type Props = OwnProps
@@ -20,6 +21,7 @@ const PlantCardItem: FunctionComponent<Props> = props => {
       name_nomenclature: nameNomenclature,
       need_water: needWater,
     },
+    onDelete,
   } = props
 
   const [watered, setWatered] = useState(() => !needWater)
@@ -75,7 +77,8 @@ const PlantCardItem: FunctionComponent<Props> = props => {
             ) : null}
             {!watered && (
               <Button
-                variant="vera"
+                variant="veronika"
+                color="secondary"
                 size="small"
                 fullWidth
                 onClick={markWateringPlant}
