@@ -14,7 +14,6 @@ import {
   DialogTitle,
 } from '@mui/material'
 
-import { getIllumination, temperature, humidity } from '../string-values'
 import { FlowerInfo } from '../types'
 
 interface PlantInfoModalProps {
@@ -23,7 +22,7 @@ interface PlantInfoModalProps {
   plantInfo: FlowerInfo
 }
 
-const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
+const PlantSummaryModal: React.FC<PlantInfoModalProps> = ({
   open,
   onClose,
   plantInfo,
@@ -38,32 +37,38 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
         </Typography>
       </DialogTitle>
       <DialogContent>
+        <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
+          Описание
+        </Typography>
         <Typography mb={2.5}>{plantInfo.description}</Typography>
         <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
-          Режим ухода
+          Уход
         </Typography>
-        <Stack mb={2.5} gap={1} direction="row">
+        <Stack mb={1}>
           <Chip
             icon={<LightModeIcon color="secondary" />}
-            label={getIllumination(plantInfo.illumination)}
-            variant="filled"
+            label={plantInfo.illumination}
+            variant="outlined"
           />
         </Stack>
-        <Stack direction="row" spacing={1} mb={2.5} flexWrap="wrap">
-          <Chip
-            icon={<InvertColorsIcon color="primary" />}
-            label={humidity[plantInfo.humidity]}
-            variant="filled"
-          />
+        <Stack direction="row" spacing={1} mb={2.5}>
           <Chip
             icon={<ThermostatIcon color="action" />}
-            label={temperature[plantInfo.temperature]}
-            variant="filled"
+            label={plantInfo.temperature}
+            variant="outlined"
+          />
+          <Chip
+            icon={<InvertColorsIcon color="primary" />}
+            label={plantInfo.humidity}
+            variant="outlined"
           />
         </Stack>
+        <Box textAlign="center">
+          <Button>Добавить растение</Button>
+        </Box>
       </DialogContent>
     </Dialog>
   )
 }
 
-export default PlantInfoModal
+export default PlantSummaryModal

@@ -1,15 +1,43 @@
 import React, { useEffect } from 'react'
 
+import AddIcon from '@mui/icons-material/AddRounded'
+import MyLocationIcon from '@mui/icons-material/MyLocation'
+import {
+  Box,
+  Button,
+  Chip,
+  Fab,
+  Skeleton,
+  Stack,
+  Typography,
+} from '@mui/material'
+import { useQuery, useQueryClient } from 'react-query'
 import { Box, Skeleton, Stack, Typography } from '@mui/material'
 import { useQuery } from 'react-query'
 import { useDispatch } from 'react-redux'
 
-import { getMyPlants } from '../../api'
+import { getMyPlants, getWeather } from '../../api'
 import PlantCardItem from '../../components/PlantCardItem'
+import { usePosition, useUser } from '../../hooks'
+
+const NumCard = ({ label, value, unit = '' }: any) => (
+  <Stack
+    borderRadius={3}
+    bgcolor="grey.200"
+    alignItems="center"
+    p={2}
+    spacing={1}
+  >
+    <Typography variant="h5">{value ? value + unit : '—'}</Typography>
+    <Typography variant="caption">{label || 'Нет информации'}</Typography>
+  </Stack>
+)
 import { useUser } from '../../hooks'
 import { setPlantCount } from '../../store/slices/statistics-slice'
 
 export const PlantListPage = () => {
+  const queryClient = useQueryClient()
+
   const { user } = useUser()
   const { data, isLoading } = useQuery('myPlantsList', async () =>
     getMyPlants(user.uid),
@@ -19,6 +47,24 @@ export const PlantListPage = () => {
   useEffect(() => {
     dispatch(setPlantCount(data?.length))
   }, [dispatch, data])
+
+  const { latitude, longitude } = usePosition()
+
+  const { data: weather, isLoading: isLoadingWeather } = useQuery(
+    ['weather', latitude, longitude],
+    async () => getWeather({ latitude, longitude } as any),
+    {
+      // The query will not execute until the userId exists
+      enabled: Boolean(latitude && longitude),
+    },
+  )
+
+  const handlePlantDelete = id => {
+    queryClient.setQueryData(
+      'myPlantsList',
+      data?.filter(item => item.id !== id),
+    )
+  }
 
   if (isLoading) {
     return (
@@ -58,19 +104,54 @@ export const PlantListPage = () => {
   return (
     <Box position="relative">
       {/*<Button startIcon={<AddIcon />}>Новое растение</Button>*/}
-      <Stack spacing={1}>
-        {data?.map(plant => (
-          <PlantCardItem flower={plant} key={plant.id} />
-        ))}
-      </Stack>
-      <Typography
-        variant="body2"
-        color="text.secondary"
-        textAlign="center"
-        my={5}
-      >
-        Новое растение можно выбрать в каталоге
-      </Typography>
+      {weather && !isLoadingWeather ? (
+        <>
+          <Stack spacing={2} px={2} justifyContent="center" alignItems="center">
+            <Chip
+              icon={<MyLocationIcon />}
+              label={
+                isLoadingWeather ? (
+                  <Skeleton variant="text" />
+                ) : (
+                  <Typography>{weather.city}</Typography>
+                )
+              }
+            />
+            <Stack spacing={1} direction="row" justifyContent="center">
+              <NumCard
+                label="Температура"
+                value={Math.floor(weather.temperature)}
+                unit="℃"
+              />
+              <NumCard label="Влажность" value={weather.humidity} unit="%" />
+              <NumCard label="Освещённость" value={undefined} />
+            </Stack>
+          </Stack>
+        </>
+      ) : null}
+      {data ? (
+        <>
+          <Stack spacing={1}>
+            {data?.map(plant => (
+              <PlantCardItem
+                flower={plant}
+                key={plant.id}
+                onDelete={() => handlePlantDelete(plant.id)}
+              />
+            ))}
+          </Stack>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            textAlign="center"
+            my={5}
+          >
+            Новое растение можно выбрать в каталоге
+          </Typography>
+        </>
+      ) : (
+        <Typography m={3}>Добавьте растение в каталоге</Typography>
+      )}
     </Box>
   )
 }

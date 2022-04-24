@@ -1,5 +1,3 @@
-import { MyFlower } from '../types'
-
 import { API } from './API'
 
 type Coordinates = { latitude: number; longitude: number }
@@ -7,7 +5,11 @@ type Coordinates = { latitude: number; longitude: number }
 export const getWeather = ({
   latitude,
   longitude,
-}: Coordinates): Promise<any[]> =>
+}: Coordinates): Promise<{
+  city: string
+  humidity: number
+  temperature: number
+}> =>
   API.get('/currentweather', {
     params: {
       latitude,

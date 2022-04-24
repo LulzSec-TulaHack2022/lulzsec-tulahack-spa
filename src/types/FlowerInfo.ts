@@ -1,6 +1,6 @@
 type PropertyRange = 'low' | 'medium' | 'high' | 'any'
 
-type FlowerInfo = {
+export type FlowerInfo = {
   id: number
   name: string
   description: string
@@ -8,5 +8,3 @@ type FlowerInfo = {
   humidity: PropertyRange
   illumination: number
 }
-
-export type { FlowerInfo }
