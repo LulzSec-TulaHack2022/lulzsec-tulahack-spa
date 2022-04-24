@@ -76,7 +76,14 @@ const PlantCardItem: FunctionComponent<Props> = props => {
             {nameNomenclature}
           </Typography>
           <Typography fontWeight="bold">{name ?? 'Без имени'}</Typography>
-
+          <Typography color="primary" fontWeight="bold" mt={1}>
+            {'💧 ' +
+              getUnitString(waterPerMonth, [
+                'раз в месяц',
+                'раз в месяц',
+                'раза в месяц',
+              ])}
+          </Typography>
           <Box pt={1}>
             {watered ? (
               <Typography color="text.secondary">Ты лучше всех!</Typography>
@@ -94,14 +101,6 @@ const PlantCardItem: FunctionComponent<Props> = props => {
                 Я полил(а) растение
               </Button>
             )}
-            <Typography color="primary">
-              {'Поливать: ' +
-                getUnitString(waterPerMonth, [
-                  'раз в месяц',
-                  'раз в месяц',
-                  'раза в месяц',
-                ])}
-            </Typography>
           </Box>
         </Stack>
       </Stack>

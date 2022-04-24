@@ -16,7 +16,7 @@ import {
 import { deletePlant } from '../../api'
 
 interface PlantActionsProps {
-  id: string
+  id: string | number
   onDelete: any
 }
 
