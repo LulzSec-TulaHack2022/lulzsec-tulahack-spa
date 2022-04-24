@@ -89,12 +89,9 @@ const PlantCatalog: React.FC = () => {
         slideRenderer={params => {
           const { index, key } = params
 
-          console.log(params)
           const currentIndex = mod(index, data.length)
 
           const plantInfo = data[currentIndex] ?? null
-
-          console.log(currentIndex, index, plantInfo)
 
           if (!plantInfo) return null
 

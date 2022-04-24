@@ -33,13 +33,14 @@ export const theme: ThemeOptions = createTheme({
             textTransform: 'none',
             //            padding: '0 30px',
             padding: '16px',
-            fontSize: '20px',
+            fontSize: '1.2rem',
           },
         },
         {
           props: { variant: 'vera', size: 'small' },
           style: {
-            padding: '8px',
+            padding: '4px 8px',
+            fontSize: '1rem',
           },
         },
       ],

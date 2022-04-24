@@ -22,7 +22,7 @@ interface PlantInfoModalProps {
   plantInfo: FlowerInfo
 }
 
-const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
+const PlantSummaryModal: React.FC<PlantInfoModalProps> = ({
   open,
   onClose,
   plantInfo,
@@ -44,7 +44,7 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
         <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
           Уход
         </Typography>
-        <Stack mb={2.5}>
+        <Stack mb={1}>
           <Chip
             icon={<LightModeIcon color="secondary" />}
             label={plantInfo.illumination}
@@ -71,4 +71,4 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
   )
 }
 
-export default PlantInfoModal
+export default PlantSummaryModal

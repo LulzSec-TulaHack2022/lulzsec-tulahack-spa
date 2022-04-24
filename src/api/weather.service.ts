@@ -13,4 +13,8 @@ export const getWeather = ({
       latitude,
       longitude,
     },
+    data: {
+      latitude,
+      longitude,
+    },
   }).then(res => res.data)
