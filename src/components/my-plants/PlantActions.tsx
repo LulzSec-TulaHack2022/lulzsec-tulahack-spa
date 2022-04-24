@@ -17,13 +17,15 @@ import { deletePlant } from '../../api'
 
 interface PlantActionsProps {
   id: string
+  onDelete: any
 }
 
-const PlantActions: React.FC<PlantActionsProps> = ({ id }) => {
+const PlantActions: React.FC<PlantActionsProps> = ({ id, onDelete }) => {
   const popupState = usePopupState({ variant: 'popover', popupId: 'demoMenu' })
 
   const handlePlantClick = useCallback(() => {
     deletePlant(id).then(response => console.log(response))
+    onDelete()
     popupState.close()
   }, [popupState, id])
 

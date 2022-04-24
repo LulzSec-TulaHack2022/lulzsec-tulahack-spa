@@ -1,24 +1,14 @@
 import React, { useEffect } from 'react'
 
-import AddIcon from '@mui/icons-material/AddRounded'
 import MyLocationIcon from '@mui/icons-material/MyLocation'
-import {
-  Box,
-  Button,
-  Chip,
-  Fab,
-  Skeleton,
-  Stack,
-  Typography,
-} from '@mui/material'
+import { Box, Skeleton, Stack, Typography, Chip } from '@mui/material'
 import { useQuery, useQueryClient } from 'react-query'
-import { Box, Skeleton, Stack, Typography } from '@mui/material'
-import { useQuery } from 'react-query'
 import { useDispatch } from 'react-redux'
 
 import { getMyPlants, getWeather } from '../../api'
 import PlantCardItem from '../../components/PlantCardItem'
 import { usePosition, useUser } from '../../hooks'
+import { setPlantCount } from '../../store/slices/statistics-slice'
 
 const NumCard = ({ label, value, unit = '' }: any) => (
   <Stack
@@ -32,8 +22,6 @@ const NumCard = ({ label, value, unit = '' }: any) => (
     <Typography variant="caption">{label || 'Нет информации'}</Typography>
   </Stack>
 )
-import { useUser } from '../../hooks'
-import { setPlantCount } from '../../store/slices/statistics-slice'
 
 export const PlantListPage = () => {
   const queryClient = useQueryClient()

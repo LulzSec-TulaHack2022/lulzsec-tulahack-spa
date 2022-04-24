@@ -4,11 +4,9 @@ import InvertColorsIcon from '@mui/icons-material/InvertColors'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ThermostatIcon from '@mui/icons-material/Thermostat'
 import {
-  Box,
   Chip,
   Stack,
   Typography,
-  Button,
   Dialog,
   DialogContent,
   DialogTitle,

@@ -95,7 +95,7 @@ const PlantCardItem: FunctionComponent<Props> = props => {
           </Box>
         </Stack>
       </Stack>
-      <PlantActions id={id} />
+      <PlantActions id={id} onDelete={onDelete} />
     </Box>
   )
 }
