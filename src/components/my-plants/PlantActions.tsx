@@ -27,7 +27,7 @@ const PlantActions: React.FC<PlantActionsProps> = ({ id, onDelete }) => {
     deletePlant(id).then(response => console.log(response))
     onDelete()
     popupState.close()
-  }, [popupState, id])
+  }, [popupState, id, onDelete])
 
   return (
     <>
