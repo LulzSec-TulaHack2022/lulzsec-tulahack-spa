@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 import { getImgByName } from '../api/imgPlantsMap'
 import { increaseWateringCount } from '../store/slices/statistics-slice'
 import { MyFlower } from '../types'
+import { getUnitString } from '../utils'
 
 import PlantActions from './my-plants/PlantActions'
 
@@ -23,6 +24,7 @@ const PlantCardItem: FunctionComponent<Props> = props => {
       name_nomenclature: nameNomenclature,
       need_water: needWater,
       id: id,
+      water_per_month: waterPerMonth,
     },
     onDelete,
   } = props
@@ -37,7 +39,7 @@ const PlantCardItem: FunctionComponent<Props> = props => {
 
   return (
     <Box p={1} position="relative">
-      <Stack direction="row" alignItems="stretch" spacing={2} mt="40px">
+      <Stack direction="row" alignItems="stretch" spacing={2} mt="30px">
         <Box
           sx={{
             width: 130,
@@ -46,7 +48,7 @@ const PlantCardItem: FunctionComponent<Props> = props => {
             alignItems: 'center',
             justifyContent: 'center',
           }}
-          mt="-40px"
+          mt="-30px"
         >
           <img
             src={getImgByName(nameNomenclature)}
@@ -60,7 +62,7 @@ const PlantCardItem: FunctionComponent<Props> = props => {
             sx={{
               bgcolor: 'grey.200',
               width: 130,
-              height: '70%',
+              height: '60%',
               borderRadius: 2,
               fontSize: 50,
               position: 'absolute',
@@ -69,21 +71,21 @@ const PlantCardItem: FunctionComponent<Props> = props => {
             }}
           />
         </Box>
-        <Stack spacing={0.5} flex={1}>
-          <Typography fontWeight="bold" color="primary">
-            {name ?? 'Без' + ' имени'}
+        <Stack flex={1}>
+          <Typography color="text.secondary" variant="caption">
+            {nameNomenclature}
           </Typography>
-          <Typography color="text.secondary">{nameNomenclature}</Typography>
-          <Box height="4rem">
+          <Typography fontWeight="bold">{name ?? 'Без имени'}</Typography>
+
+          <Box pt={1}>
             {watered ? (
-              <Typography color="success.main">Потрясающе!</Typography>
+              <Typography color="text.secondary">Ты лучше всех!</Typography>
             ) : needWater ? (
               <Typography color="error.main">Полейте растение!</Typography>
             ) : null}
             {!watered && (
               <Button
                 variant="veronika"
-                color="secondary"
                 size="small"
                 fullWidth
                 onClick={markWateringPlant}
@@ -92,6 +94,14 @@ const PlantCardItem: FunctionComponent<Props> = props => {
                 Я полил(а) растение
               </Button>
             )}
+            <Typography color="primary">
+              {'Поливать: ' +
+                getUnitString(waterPerMonth, [
+                  'раз в месяц',
+                  'раз в месяц',
+                  'раза в месяц',
+                ])}
+            </Typography>
           </Box>
         </Stack>
       </Stack>

@@ -94,7 +94,13 @@ export const PlantListPage = () => {
       {/*<Button startIcon={<AddIcon />}>Новое растение</Button>*/}
       {weather && !isLoadingWeather ? (
         <>
-          <Stack spacing={2} px={2} justifyContent="center" alignItems="center">
+          <Stack
+            spacing={2}
+            px={2}
+            justifyContent="center"
+            alignItems="center"
+            mb={2}
+          >
             <Chip
               icon={<MyLocationIcon />}
               label={
