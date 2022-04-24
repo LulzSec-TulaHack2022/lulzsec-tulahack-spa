@@ -4,16 +4,15 @@ import InvertColorsIcon from '@mui/icons-material/InvertColors'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import ThermostatIcon from '@mui/icons-material/Thermostat'
 import {
-  Box,
   Chip,
   Stack,
   Typography,
-  Button,
   Dialog,
   DialogContent,
   DialogTitle,
 } from '@mui/material'
 
+import { getIllumination, temperature, humidity } from '../string-values'
 import { FlowerInfo } from '../types'
 
 interface PlantInfoModalProps {
@@ -37,28 +36,27 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
         </Typography>
       </DialogTitle>
       <DialogContent>
-        <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
-          Описание
-        </Typography>
         <Typography mb={2.5}>{plantInfo.description}</Typography>
         <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
-          Уход
+          Режим ухода
         </Typography>
         <Stack mb={2.5} gap={1} direction="row">
           <Chip
             icon={<LightModeIcon color="secondary" />}
-            label={plantInfo.illumination}
-            //            variant="filled"
+            label={getIllumination(plantInfo.illumination)}
+            variant="filled"
+          />
+        </Stack>
+        <Stack direction="row" spacing={1} mb={2.5} flexWrap="wrap">
+          <Chip
+            icon={<InvertColorsIcon color="primary" />}
+            label={humidity[plantInfo.humidity]}
+            variant="filled"
           />
           <Chip
             icon={<ThermostatIcon color="action" />}
-            label={plantInfo.temperature}
-            //            variant="outlined"
-          />
-          <Chip
-            icon={<InvertColorsIcon color="primary" />}
-            label={plantInfo.humidity}
-            //            variant="outlined"
+            label={temperature[plantInfo.temperature]}
+            variant="filled"
           />
         </Stack>
       </DialogContent>

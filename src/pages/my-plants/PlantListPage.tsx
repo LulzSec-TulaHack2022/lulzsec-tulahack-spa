@@ -1,21 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import AddIcon from '@mui/icons-material/AddRounded'
 import MyLocationIcon from '@mui/icons-material/MyLocation'
-import {
-  Box,
-  Button,
-  Chip,
-  Fab,
-  Skeleton,
-  Stack,
-  Typography,
-} from '@mui/material'
+import { Box, Skeleton, Stack, Typography, Chip } from '@mui/material'
 import { useQuery, useQueryClient } from 'react-query'
+import { useDispatch } from 'react-redux'
 
 import { getMyPlants, getWeather } from '../../api'
 import PlantCardItem from '../../components/PlantCardItem'
 import { usePosition, useUser } from '../../hooks'
+import { setPlantCount } from '../../store/slices/statistics-slice'
 
 const NumCard = ({ label, value, unit = '' }: any) => (
   <Stack
@@ -37,6 +30,11 @@ export const PlantListPage = () => {
   const { data, isLoading } = useQuery('myPlantsList', async () =>
     getMyPlants(user.uid),
   )
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(setPlantCount(data?.length))
+  }, [dispatch, data])
 
   const { latitude, longitude } = usePosition()
 

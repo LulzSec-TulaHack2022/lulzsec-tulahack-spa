@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded'
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded'
@@ -13,8 +13,21 @@ import {
   bindMenu,
 } from 'material-ui-popup-state/hooks'
 
-export function PlantActions() {
+import { deletePlant } from '../../api'
+
+interface PlantActionsProps {
+  id: string
+  onDelete: any
+}
+
+const PlantActions: React.FC<PlantActionsProps> = ({ id, onDelete }) => {
   const popupState = usePopupState({ variant: 'popover', popupId: 'demoMenu' })
+
+  const handlePlantClick = useCallback(() => {
+    deletePlant(id).then(response => console.log(response))
+    onDelete()
+    popupState.close()
+  }, [popupState, id])
 
   return (
     <>
@@ -36,7 +49,7 @@ export function PlantActions() {
           <ListItemText>Информация</ListItemText>
         </MenuItem>
         <Divider />
-        <MenuItem onClick={popupState.close}>
+        <MenuItem onClick={handlePlantClick}>
           <ListItemIcon>
             <DeleteRoundedIcon fontSize="small" />
           </ListItemIcon>
@@ -52,3 +65,5 @@ export function PlantActions() {
     </>
   )
 }
+
+export default PlantActions

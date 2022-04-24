@@ -6,5 +6,5 @@ export type FlowerInfo = {
   description: string
   temperature: PropertyRange
   humidity: PropertyRange
-  illumination: PropertyRange
+  illumination: number
 }

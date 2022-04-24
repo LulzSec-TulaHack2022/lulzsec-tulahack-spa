@@ -7,6 +7,7 @@ import { Avatar, Box, Button, Stack, Typography } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
+import Statistics from '../components/Statistics'
 import { useUser } from '../hooks'
 import { removeUser } from '../store/slices/user-slice'
 
@@ -34,6 +35,9 @@ export const AccountPage: FunctionComponent = () => {
       </Stack>
 
       <Stack spacing={1.5} mt={10}>
+        <Typography variant="h5" fontWeight="bold">
+          Меню
+        </Typography>
         <Stack
           direction="row"
           justifyContent="space-between"
@@ -89,6 +93,7 @@ export const AccountPage: FunctionComponent = () => {
           <QuestionAnswerIcon />
         </Stack>
       </Stack>
+      <Statistics />
     </Box>
   )
 }
