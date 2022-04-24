@@ -14,6 +14,7 @@ import {
   DialogTitle,
 } from '@mui/material'
 
+import { getIllumination, temperature, humidity } from '../string-values'
 import { FlowerInfo } from '../types'
 
 interface PlantInfoModalProps {
@@ -27,6 +28,7 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
   onClose,
   plantInfo,
 }) => {
+  console.log(plantInfo)
   return (
     <Dialog open={open} onClose={onClose} maxWidth="xs">
       <DialogTitle>
@@ -35,35 +37,29 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
         </Typography>
       </DialogTitle>
       <DialogContent>
-        <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
-          Описание
-        </Typography>
         <Typography mb={2.5}>{plantInfo.description}</Typography>
         <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
-          Уход
+          Режим ухода
         </Typography>
         <Stack mb={1}>
           <Chip
             icon={<LightModeIcon color="secondary" />}
-            label={plantInfo.illumination}
-            variant="outlined"
+            label={getIllumination(plantInfo.illumination)}
+            variant="filled"
           />
         </Stack>
-        <Stack direction="row" spacing={1} mb={2.5}>
-          <Chip
-            icon={<ThermostatIcon color="action" />}
-            label={plantInfo.temperature}
-            variant="outlined"
-          />
+        <Stack direction="row" spacing={1} mb={2.5} flexWrap="wrap">
           <Chip
             icon={<InvertColorsIcon color="primary" />}
-            label={plantInfo.humidity}
-            variant="outlined"
+            label={humidity[plantInfo.humidity]}
+            variant="filled"
+          />
+          <Chip
+            icon={<ThermostatIcon color="action" />}
+            label={temperature[plantInfo.temperature]}
+            variant="filled"
           />
         </Stack>
-        <Box textAlign="center">
-          <Button>Добавить растение</Button>
-        </Box>
       </DialogContent>
     </Dialog>
   )

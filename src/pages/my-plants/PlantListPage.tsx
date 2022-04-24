@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-import AddIcon from '@mui/icons-material/AddRounded'
-import { Box, Button, Fab, Skeleton, Stack, Typography } from '@mui/material'
+import { Box, Skeleton, Stack, Typography } from '@mui/material'
 import { useQuery } from 'react-query'
+import { useDispatch } from 'react-redux'
 
 import { getMyPlants } from '../../api'
 import PlantCardItem from '../../components/PlantCardItem'
 import { useUser } from '../../hooks'
+import { setPlantCount } from '../../store/slices/statistics-slice'
 
 export const PlantListPage = () => {
   const { user } = useUser()
   const { data, isLoading } = useQuery('myPlantsList', async () =>
     getMyPlants(user.uid),
   )
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(setPlantCount(data?.length))
+  }, [dispatch, data])
 
   if (isLoading) {
     return (

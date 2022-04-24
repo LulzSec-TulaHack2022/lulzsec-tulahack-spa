@@ -51,7 +51,7 @@ const PlantCreating: React.FC<PlantCreatingProps> = ({
       name: myPlantName,
     }).then(data => console.log(data))
     onClose()
-  }, [myPlantName, onClose, user, plantInfo.name])
+  }, [myPlantName, onClose, user, plantInfo])
 
   return (
     <Dialog open={open} fullScreen={true}>

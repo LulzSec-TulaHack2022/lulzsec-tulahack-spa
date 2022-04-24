@@ -1,11 +1,13 @@
 import React, { FunctionComponent, useState } from 'react'
 
 import { Box, Button, Stack, Typography } from '@mui/material'
+import { useDispatch } from 'react-redux'
 
 import { getImgByName } from '../api/imgPlantsMap'
+import { increaseWateringCount } from '../store/slices/statistics-slice'
 import { MyFlower } from '../types'
 
-import { PlantActions } from './my-plants/PlantActions'
+import PlantActions from './my-plants/PlantActions'
 
 interface OwnProps {
   flower: MyFlower
@@ -19,13 +21,16 @@ const PlantCardItem: FunctionComponent<Props> = props => {
       name,
       name_nomenclature: nameNomenclature,
       need_water: needWater,
+      id: id,
     },
   } = props
 
   const [watered, setWatered] = useState(() => !needWater)
+  const dispatch = useDispatch()
 
   const markWateringPlant = () => {
     setWatered(true)
+    dispatch(increaseWateringCount())
   }
 
   return (
@@ -85,7 +90,7 @@ const PlantCardItem: FunctionComponent<Props> = props => {
           </Box>
         </Stack>
       </Stack>
-      <PlantActions />
+      <PlantActions id={id} />
     </Box>
   )
 }
