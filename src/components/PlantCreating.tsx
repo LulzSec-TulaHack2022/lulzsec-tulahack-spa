@@ -75,7 +75,7 @@ const PlantCreating: React.FC<PlantCreatingProps> = ({
         </IconButton>
       </Stack>
       <DialogContent>
-        <Box my={1.1} height={150} width={150}>
+        <Box my={1.1} height={150} width={150} mx="auto">
           <img
             src={getImgByName(plantInfo.name)}
             alt="plant"

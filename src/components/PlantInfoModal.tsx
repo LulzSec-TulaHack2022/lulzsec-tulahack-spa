@@ -40,14 +40,12 @@ const PlantInfoModal: React.FC<PlantInfoModalProps> = ({
         <Typography variant="h6" mb={1} fontSize={16} fontWeight={700}>
           Режим ухода
         </Typography>
-        <Stack mb={2.5} gap={1} direction="row">
+        <Stack direction="row" gap={1} spacing={1} mb={2.5} flexWrap="wrap">
           <Chip
             icon={<LightModeIcon color="secondary" />}
-            label={getIllumination(plantInfo.illumination)}
+            label={getIllumination(Number(plantInfo.illumination))}
             variant="filled"
           />
-        </Stack>
-        <Stack direction="row" spacing={1} mb={2.5} flexWrap="wrap">
           <Chip
             icon={<InvertColorsIcon color="primary" />}
             label={humidity[plantInfo.humidity]}

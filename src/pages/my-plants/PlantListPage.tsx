@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 import MyLocationIcon from '@mui/icons-material/MyLocation'
-import { Box, Skeleton, Stack, Typography, Chip } from '@mui/material'
+import { Box, Skeleton, Stack, Typography, Chip, Alert } from '@mui/material'
 import { useQuery, useQueryClient } from 'react-query'
 import { useDispatch } from 'react-redux'
 
@@ -122,7 +122,9 @@ export const PlantListPage = () => {
             </Stack>
           </Stack>
         </>
-      ) : null}
+      ) : (
+        <Alert severity="info">Разрешите геолокацию!</Alert>
+      )}
       {data ? (
         <>
           <Stack spacing={1}>
