@@ -32,6 +32,14 @@ export const theme: ThemeOptions = createTheme({
             //            height: 48,
             textTransform: 'none',
             //            padding: '0 30px',
+            padding: '16px',
+            fontSize: '20px',
+          },
+        },
+        {
+          props: { variant: 'vera', size: 'small' },
+          style: {
+            padding: '8px',
           },
         },
       ],
